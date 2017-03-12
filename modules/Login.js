@@ -28,7 +28,7 @@ var Login = React.createClass({
 				}else{
 					console.log(data);
 					document.cookie = "douban_username="+data;
-					alert('login successful!');
+					alert('登陆成功!');
 					window.location.href="http://localhost:8080/#/movies?_k=n0xhzw";
 				}
 			},
@@ -43,9 +43,9 @@ var Login = React.createClass({
 		      <form className="form-signin">
 		        <h2 className="form-signin-heading text_c">用户登录</h2>
 		        <label for="inputEmail" className="sr-only">邮箱/手机号</label>
-		        <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus ref="username" />
+		        <input type="email" id="inputEmail" className="form-control" placeholder="邮箱号或用户名" required autofocus ref="username" />
 		        <label for="inputPassword" className="sr-only">密码</label>
-		        <input type="password" id="inputPassword" className="form-control" placeholder="Password" required ref="password" />
+		        <input type="password" id="inputPassword" className="form-control" placeholder="密码" required ref="password" />
 		        <div className="checkbox">
 		          <label>
 		            <input type="checkbox" value="remember-me" /> 记住用户名
