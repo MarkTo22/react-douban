@@ -12,6 +12,10 @@ var App = React.createClass({
 		}
 	},
 	componentWillMount:function(){
+		
+	},
+	componentDidMount:function(){
+
 		var _this = this;
 		if(document.cookie){
 			
@@ -21,6 +25,8 @@ var App = React.createClass({
 				var y = arr[item].split('=');
 				// console.log(y);
 				if($.trim(y[0]) == 'douban_username'){
+					$(this.refs.login).remove();
+					$(this.refs.register).remove();
 					_this.setState({
 						username:$.trim(y[1])
 					})
@@ -28,12 +34,6 @@ var App = React.createClass({
 					
 				}
 			}
-		}
-	},
-	componentDidMount:function(){
-		if(this.state.username){
-			$(this.refs.login).remove();
-			$(this.refs.register).remove();
 		}
 		
 	},
