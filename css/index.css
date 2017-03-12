@@ -1,0 +1,28 @@
+/*home*/
+.list{
+	text-align: center;
+}
+.overhidden{
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.search{margin-right:15px;}
+
+/*detail*/
+.main_detail{widows: 100%;overflow: hidden;}
+.detail{clear: both;overflow: hidden;}
+.detail_l{float: left;width: 30%;}
+.detail_r{float: left;width:70%;padding-top: 80px;}
+ul{list-style: none;}
+li{list-style: none;}
+
+.color-green{color:#007728;}
+.intro_info{width:80%;}
+
+/*login*/
+.form-signin{max-width: 330px;
+  padding: 15px;
+ margin: 0 auto;}
+ .text_c{text-align: center;}
