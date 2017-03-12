@@ -14,20 +14,28 @@ var App = React.createClass({
 	componentWillMount:function(){
 		var _this = this;
 		if(document.cookie){
+			
 			var x = document.cookie;
 			var arr = x.split(';');
 			for(var item in arr){
 				var y = arr[item].split('=');
-				console.log(y);
+				// console.log(y);
 				if($.trim(y[0]) == 'douban_username'){
 					_this.setState({
 						username:$.trim(y[1])
 					})
-					console.log($.trim(y[1]),_this.refs.login);
+					//console.log($.trim(y[1]));
 					
 				}
 			}
 		}
+	},
+	componentDidMount:function(){
+		if(this.state.username){
+			$(this.refs.login).remove();
+			$(this.refs.register).remove();
+		}
+		
 	},
 	
 	handlerSearch:function(){
@@ -75,7 +83,7 @@ var App = React.createClass({
 				                    <li><a href="#">下载客户端</a></li>
 				                    <li><a href="#">阅读</a></li>
 				                    <li ref="login"><NavLink to="/login">登录</NavLink></li>
-				                    <li><NavLink to="/register">注册</NavLink></li>
+				                    <li ref="register"><NavLink to="/register">注册</NavLink></li>
 				                  </ul>
 				                </li>
 				              </ul>
