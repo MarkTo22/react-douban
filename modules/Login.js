@@ -28,7 +28,8 @@ var Login = React.createClass({
 				}else{
 					console.log(data);
 					document.cookie = "douban_username="+data;
-					window.location.href="/";
+					alert('login successful!');
+					window.location.href="http://localhost:8080/#/movies?_k=n0xhzw";
 				}
 			},
 			error:function(err){

@@ -14,6 +14,7 @@ var Musics = require('./modules/Musics');
 var Detail = require('./modules/Detail');
 var Login = require('./modules/Login');
 var Register = require('./modules/Register');
+var Search = require('./modules/Search');
 
 var Index = React.createClass({
 	render:function(){
@@ -26,6 +27,7 @@ var Index = React.createClass({
 					<Route path="/musics" component={Musics} />					
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Register} />
+					<Route path="/search" component={Search} />
 				</Route>
 			</Router>
 		)

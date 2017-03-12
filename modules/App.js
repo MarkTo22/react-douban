@@ -3,6 +3,9 @@ var NavLink = require('./NavLink');
 var IndexLink = require('react-router').IndexLink;
 
 var App = React.createClass({
+	contextTypes: {
+		router: React.PropTypes.object
+	},
 	getInitialState:function(){
 		return {
 			username:[]
@@ -26,6 +29,24 @@ var App = React.createClass({
 			}
 		}
 	},
+	
+	handlerSearch:function(){
+		var _this = this;
+		var search_cont = this.refs.search_cont.value;
+		$.ajax({
+			url:"http://api.douban.com/v2/movie/search?",
+			type:'get',
+			data:'q='+search_cont,
+			dataType:'jsonp',
+			success:function(data){
+				// console.log(data);
+				_this.context.router.push({
+					pathname:'/search',
+					state:data
+				});
+			}
+		})
+	},
 	render:function(){
 		
 		return (
@@ -41,7 +62,7 @@ var App = React.createClass({
 				                <span className="icon-bar"></span>
 				                <span className="icon-bar"></span>
 				              </button>
-				              <a className="navbar-brand" href="#">打豆豆</a>
+				              <a className="navbar-brand" href="#">豆豆</a>
 				            </div>
 				            <div id="navbar" className="navbar-collapse collapse">
 				              <ul className="nav navbar-nav">
@@ -60,17 +81,14 @@ var App = React.createClass({
 				              </ul>
 							  	<form className="navbar-form navbar-right search">
 						        	<div className="input-group">
-							      <input type="text" className="form-control" placeholder="Search for..."/>
+							      <input type="text" className="form-control" placeholder="张艺谋" ref="search_cont" />
 							      <span className="input-group-btn">
-							        <button className="btn btn-default" type="button">搜索</button>
+							        <button className="btn btn-default" type="button" onClick={this.handlerSearch}>搜索</button>
 							      </span>
 							    </div>
 						      	</form>
 
 				            </div>
-
-				           
-				            
 
 						  
 
